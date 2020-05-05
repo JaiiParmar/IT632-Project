@@ -20,7 +20,7 @@ const userSchema = new Schema({
     required: true,
     //spedify reg-ex.
   },
-  user_type: {
+  role: {
     type: String,
     enum: ["admin", "faculty", "student"],
     required: true,
