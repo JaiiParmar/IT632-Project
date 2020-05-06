@@ -29,6 +29,7 @@ router.get('/addstudent',(req,res)=>res.render('AddStudent'))
 router.get('/contact',(req,res)=>res.render('contact'))
 router.get('/faculty_getstarted',(req,res)=>res.render('Faculty_GetStarted'))
 router.get('/generate_questionpaper',(req,res)=>res.render('Generate_QuestionPaper'))
+router.get('/generate_questionpaper_faculty',(req,res)=>res.render('Generate_QuestionPaper_Faculty'))
 router.get('/old_questionpapers',(req,res)=>res.render('Old_QuestionPapers'))
 router.get('/removecourse',(req,res)=>res.render('RemoveCourse'))
 router.get('/removefaculty',(req,res)=>res.render('RemoveFaculty'))
@@ -56,11 +57,11 @@ function checkUser(req,res){
                 console.log("Authentication Done!!!")
                 if(docs.role=="admin")
                 {
-                  res.redirect('/admin_dashboard');
+                  res.redirect('admin_dashboard',{docs: docs});
                 }
                 else if(docs.role=="faculty")
                 {
-                  res.redirect('/faculty_getstarted')
+                  res.render('faculty_getstarted', {docs: docs});
                 }
             }
         }
